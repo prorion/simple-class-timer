@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+/* 수업 시작 전 */
+#app.before-class {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* 수업 중 */
+#app.in-class {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* 쉬는 시간 */
+#app.break-time {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+/* 점심 시간 */
+#app.lunch-time {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* 수업 종료 */
+#app.after-class {
+  background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+.time-display {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+  transition: font-size 0.3s ease;
+}
+
+.status-display {
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: font-size 0.3s ease, padding 0.3s ease;
+}
+
+/* 전체화면 모드일 때 폰트 크기 3배 */
+body.fullscreen .time-display {
+  font-size: 144px;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+body.fullscreen .status-display {
+  font-size: 72px;
+  padding: 30px 60px;
+  border-radius: 60px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}

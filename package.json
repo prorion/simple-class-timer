@@ -1,0 +1,29 @@
+{
+  "name": "simple-class-timer",
+  "version": "1.0.0",
+  "description": "강의용 타이머 프로그램",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.simple.classtimer",
+    "productName": "Class Timer",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  }
+}
