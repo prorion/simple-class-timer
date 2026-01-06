@@ -28,8 +28,8 @@ function updateStatus(hours, minutes, seconds) {
     status = 'READY TIME';
     className = 'before-class';
   }
-  // 오후 6시 (18시) 이후
-  else if (hours >= 18) {
+  // 오후 5시 50분(17:50) 이후
+  else if (hours > 17 || (hours === 17 && minutes >= 50)) {
     status = 'SESSION ENDED';
     className = 'after-class';
   }
@@ -62,6 +62,14 @@ setInterval(updateTime, 1000);
 app.addEventListener('dblclick', () => {
   if (window.electronAPI) {
     window.electronAPI.toggleFullscreen();
+  }
+});
+
+// 우클릭으로 컨텍스트 메뉴 표시
+app.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+  if (window.electronAPI) {
+    window.electronAPI.showContextMenu();
   }
 });
 

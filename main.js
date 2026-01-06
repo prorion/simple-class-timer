@@ -45,6 +45,42 @@ ipcMain.on('toggle-fullscreen', (event) => {
   }
 });
 
+// 컨텍스트 메뉴 IPC 핸들러
+ipcMain.on('show-context-menu', (event) => {
+  const win = BrowserWindow.fromWebContents(event.sender);
+  if (win) {
+    const isFullScreen = win.isFullScreen();
+    
+    const contextMenu = Menu.buildFromTemplate([
+      {
+        label: '전체화면 보기',
+        enabled: !isFullScreen,
+        click: () => {
+          win.setFullScreen(true);
+          event.sender.send('fullscreen-changed', true);
+        }
+      },
+      {
+        label: '윈도우 모드로 보기',
+        enabled: isFullScreen,
+        click: () => {
+          win.setFullScreen(false);
+          event.sender.send('fullscreen-changed', false);
+        }
+      },
+      { type: 'separator' },
+      {
+        label: '종료',
+        click: () => {
+          app.quit();
+        }
+      }
+    ]);
+    
+    contextMenu.popup(win);
+  }
+});
+
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
