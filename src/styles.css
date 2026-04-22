@@ -21,27 +21,22 @@ body {
   transition: background-color 0.5s ease;
 }
 
-/* 수업 시작 전 */
 #app.before-class {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-/* 수업 중 */
 #app.in-class {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
-/* 쉬는 시간 */
 #app.break-time {
   background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
 }
 
-/* 점심 시간 */
 #app.lunch-time {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
-/* 수업 종료 */
 #app.after-class {
   background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
 }
@@ -67,7 +62,6 @@ body {
   transition: font-size 0.3s ease, padding 0.3s ease;
 }
 
-/* 전체화면 모드일 때 폰트 크기 3배 */
 body.fullscreen .time-display {
   font-size: 144px;
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
